@@ -1,0 +1,56 @@
+// Exercise 1
+const greeter = (myArray, counter) => {
+  const greetText = 'Hello';
+  for (const name of myArray.slice(0, counter)) {
+    console.log(`${greetText} ${name}`);
+  }
+};
+greeter(['Randy Savage', 'Ric Flair', 'Hulk Hogan'], 3);
+
+// Exercise 2
+const capitalize = (str = '') => {
+  const [first = '', ...rest] = str;
+  return `${first.toUpperCase()}${rest.join('').toLowerCase()}`;
+};
+console.log(capitalize('fooBar'));
+console.log(capitalize('nodeJs'));
+
+// Exercise 3
+const colors = ['red', 'green', 'blue', 'yellow'];
+const capitalizedColors = colors.map(color => capitalize(color));
+console.log(capitalizedColors);
+
+// Exercise 4
+const numbers = [5, 12, 25, 30, 7, 50];
+const filtered = numbers.filter(num => num >= 20);
+console.log(filtered);
+
+// Exercise 5
+const arr = [1, 2, 3, 4];
+const sum = arr.reduce((acc, num) => acc + num, 0);
+const product = arr.reduce((acc, num) => acc * num, 1);
+console.log(`Sum: ${sum}, Product: ${product}`);
+
+// Exercise 6
+class Car {
+  constructor(model, year) {
+    this.model = model;
+    this.year = year;
+  }
+  displayInfo() {
+    return `${this.model} (${this.year})`;
+  }
+}
+class Sedan extends Car {
+  constructor(model, year, balance) {
+    super(model, year);
+    this.balance = balance;
+  }
+  displayBalance() {
+    return `${this.displayInfo()} has a balance of $${this.balance}`;
+  }
+}
+const mySedan = new Sedan('Toyota Camry', 2021, 25000);
+console.log(mySedan.displayInfo());
+console.log(mySedan.displayBalance());
+
